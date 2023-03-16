@@ -5,7 +5,7 @@
         <div class="col-lg-7 mb-5">
             <div class="contact-form bg-light p-30">
                 <div id="success"></div>
-                <form name="register" id="contactForm" method="POST" action="{{ route('registerUser') }}">
+                <form name="register" id="regForm" method="POST" action="{{ route('registerUser') }}">
                     @csrf
                     <div class="control-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Your Email" data-validation-required-message="Please enter your email" />
@@ -33,7 +33,7 @@
                         <p class="help-block text-danger"></p>
                     </div>
                     <div>
-                        <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Submit</button>
+                        <button class="btn btn-primary py-2 px-4" type="submit" id="regFormButton">Submit</button>
                     </div>
                 </form>
             </div>

@@ -12,11 +12,14 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('activities', function (Blueprint $table) {
+        Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->string('user');
-            $table->string('activity_desc');
-            $table->timestamps();
+            $table->string('title');
+            $table->string('message');
+            $table->string('initiator');
+            $table->timestamps("chat_time");
+            $table->string('has_attachment')->nullable();
+            $table->string('attached_file')->nullable();
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('chats');
     }
 };

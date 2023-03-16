@@ -12,10 +12,12 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('logins', function (Blueprint $table) {
+        Schema::create('chat_responses', function (Blueprint $table) {
             $table->id();
-            $table->string('user');
-            $table->timestamps();
+            $table->string('message');
+            $table->timestamps('resp_time');
+            $table->string('has_attachment')->nullable();
+            $table->string('attached_file')->nullable();
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('logins');
+        Schema::dropIfExists('chat_responses');
     }
 };

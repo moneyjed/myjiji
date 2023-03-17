@@ -5,7 +5,7 @@
         <div class="col-lg-7 mb-5">
             <div class="contact-form bg-light p-30">
                 <div id="success"></div>
-                <form method="POST" action="{{ route('loginUser') }}" name="login" id="contactForm">
+                <form method="POST" action="loginUser" name="login" id="contactForm">
                     @csrf
                     <div class="control-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Your Email" data-validation-required-message="Please enter your email" autofocus />
@@ -36,7 +36,7 @@
             <div class="bg-light p-30 mb-3">
                 <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
                 <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-                <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+                <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+234 906 607 68280</p>
             </div>
         </div>-->
     </div>

@@ -12,14 +12,13 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('chats', function (Blueprint $table) {
+        Schema::create('activation_keys', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('message');
-            $table->string('initiator');
-            $table->timestamps("chat_time");
-            $table->string('has_attachment')->nullable();
-            $table->string('attached_file')->nullable();
+            $table->string('a_key');
+            $table->string('set_for');
+            $table->dateTime('set_date');
+            $table->string('status');
+            $table->dateTime('use_date');
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('chats');
+        Schema::dropIfExists('activation_keys');
     }
 };

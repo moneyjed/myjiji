@@ -5,7 +5,7 @@
         <div class="col-lg-7 mb-5">
             <div class="contact-form bg-light p-30">
                 <div id="success"></div>
-                <form name="register" id="regForm" method="POST" action="{{ route('registerUser') }}">
+                <form name="register" id="regForm" method="POST" action="/registerUser">
                     @csrf
                     <div class="control-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Your Email" data-validation-required-message="Please enter your email" />
@@ -16,19 +16,19 @@
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
-                        <input id="re-password" type="password" class="form-control @error('password') is-invalid @enderror" name="re-password" required autocomplete="new-password" placeholder="Password" data-validation-required-message="Please type your password" placeholder="Re-type your password" data-validation-required-message="Re-type your password" />
+                        <input id="re_password" type="password" class="form-control @error('password') is-invalid @enderror" name="re_password" required autocomplete="new-password" placeholder="Password" data-validation-required-message="Please type your password" placeholder="Re-type your password" data-validation-required-message="Re-type your password" />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
-                        <input id="fname" type="text" class="form-control @error('name') is-invalid @enderror" name="fname" value="{{ old('name') }}" required autocomplete="fname" autofocus placeholder="First Name" data-validation-required-message="Please enter your first name" />
+                        <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname" autofocus placeholder="First Name" data-validation-required-message="Please enter your first name" />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
-                        <input id="lname" type="text" class="form-control @error('name') is-invalid @enderror" name="lname" value="{{ old('name') }}" required autocomplete="lname" autofocus placeholder="Last Name" data-validation-required-message="Please enter your last name" />
+                        <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus placeholder="Last Name" data-validation-required-message="Please enter your last name" />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
-                        <input type="text" class="form-control" id="phoneNo" placeholder="Phone No."
+                        <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Phone No."
                                required="required" data-validation-required-message="Please type your Phone No." />
                         <p class="help-block text-danger"></p>
                     </div>
@@ -47,7 +47,7 @@
             <div class="bg-light p-30 mb-3">
                 <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
                 <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-                <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+                <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+234 906 607 68280</p>
             </div>
         </div>-->
     </div>

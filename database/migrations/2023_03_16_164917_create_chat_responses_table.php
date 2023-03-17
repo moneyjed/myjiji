@@ -12,15 +12,12 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('uploads', function (Blueprint $table) {
+        Schema::create('chat_responses', function (Blueprint $table) {
             $table->id();
-            $table->string('upload_name');
-            $table->string('new_name');
-            $table->string('upload_by');
-            $table->string('upload_type');
-            $table->string('file_ext');
-            $table->string('upload_ref');
-            $table->timestamps('upload_date');
+            $table->string('message');
+            $table->dateTime('resp_time');
+            $table->boolean('has_attachment')->default(0);
+            $table->string('file_ref');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('uploads');
+        Schema::dropIfExists('chat_responses');
     }
 };

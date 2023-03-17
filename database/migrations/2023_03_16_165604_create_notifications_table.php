@@ -12,12 +12,14 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('chat_responses', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->string('message');
-            $table->timestamps('resp_time');
-            $table->string('has_attachment')->nullable();
-            $table->string('attached_file')->nullable();
+            $table->string('content');
+            $table->string('sent_to');
+            $table->string('sent_by');
+            $table->string('noti_status');
+            $table->string('noti_type');
+            $table->dateTime('noti_date');
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('chat_responses');
+        Schema::dropIfExists('notifications');
     }
 };

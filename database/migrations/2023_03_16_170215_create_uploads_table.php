@@ -12,13 +12,15 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('activation_keys', function (Blueprint $table) {
+        Schema::create('uploads', function (Blueprint $table) {
             $table->id();
-            $table->string('a_key');
-            $table->string('set_for');
-            $table->timestamps('set_date');
-            $table->string('status');
-            $table->timestamps('use_date')->nullable();
+            $table->string('upload_name');
+            $table->string('new_name');
+            $table->string('upload_by');
+            $table->string('upload_type');
+            $table->string('file_ext');
+            $table->string('upload_ref');
+            $table->dateTime('upload_date');
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('activation_keys');
+        Schema::dropIfExists('uploads');
     }
 };

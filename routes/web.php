@@ -28,9 +28,12 @@ Route::get('/next', function () {
     return view('next');
 });
 
-Route::post('/registerUser', [RegisterController::class, 'create'])->name('registerUser');
+//Route::post('/registerUser', 'RegisterController@create');
+Route::post('/registerUser', [RegisterController::class, 'create']);
+Route::post('/loginUser', [LoginController::class, 'authenticate']);
+Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'logout']);
 
-Route::post('/loginUser', [LoginController::class, 'login'])->name('loginUser');
+//Route::post('/loginUser', [LoginController::class, 'login'])->name('loginUser');
 
 Auth::routes();
 

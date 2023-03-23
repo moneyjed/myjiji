@@ -21,6 +21,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/chat.css" rel="stylesheet">
     <link rel="icon" href="{{ url('img/buyam_logo.ico') }}">
     <!--<link rel="icon" type="image/x-icon" href="img/apple-touch-icon.png">-->
 </head>

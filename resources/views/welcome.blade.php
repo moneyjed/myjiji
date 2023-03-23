@@ -30,6 +30,7 @@
         @include('pageFragments.featuredContainer')
         <!-- Products End -->
 
+        @include('pageFragments.chatContainer')
 
         <!-- Offer Start -->
         <!-- Offer End -->

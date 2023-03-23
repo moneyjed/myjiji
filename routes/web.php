@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Models\Category;
+use App\Http\Controllers\HomeController;
 
 /*
   |--------------------------------------------------------------------------
@@ -15,9 +17,9 @@ use App\Http\Controllers\Auth\LoginController;
   |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+//Route::get('/', 'HomeController@index');
+
 Route::get('/register', function () {
     return view('register');
 });
@@ -27,12 +29,24 @@ Route::get('/login', function () {
 Route::get('/next', function () {
     return view('next');
 });
+Route::get('/', function () {
+    return view('welcome');
+});
+
+/* Route::get('/', function () {
+  if (Auth::check()) {
+  echo 'it is here';
+  exit;
+  } else {
+  echo 'it is not';
+  exit;
+  }
+  }); */
 
 //Route::post('/registerUser', 'RegisterController@create');
 Route::post('/registerUser', [RegisterController::class, 'create']);
 Route::post('/loginUser', [LoginController::class, 'authenticate']);
 Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'logout']);
-
 //Route::post('/loginUser', [LoginController::class, 'login'])->name('loginUser');
 
 Auth::routes();

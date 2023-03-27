@@ -6,7 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 //use App\Http\Controllers\Auth\Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Session;
+use Illuminate\Http\Request;
+use DB;
+use Auth;
 
 class LoginController extends Controller {
     /*
@@ -40,17 +45,24 @@ use AuthenticatesUsers;
     }
 
     public function authenticate(Request $request) {
-        echo 'it is here';
-        exit;
         $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
+        $validData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+        //var_dump($validData);
+        //exit;
+        if (Auth::attempt($validData)) {
+            echo 'it is here';
+            exit;
             // Authentication passed...
             //Session::put('userName', $value);
             $req->session()->flash('reg_status', 'You is successfully logged in');
             return redirect('/');
             //return redirect()->intended('dashboard');
         } else {
+            echo 'it is not here';
+            exit;
             $req->session()->flash('reg_status', 'The login credentials you entered are incorrect');
             return redirect('/');
         }

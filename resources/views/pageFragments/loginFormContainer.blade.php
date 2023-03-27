@@ -5,7 +5,7 @@
         <div class="col-lg-7 mb-5">
             <div class="contact-form bg-light p-30">
                 <div id="success"></div>
-                <form method="POST" action="loginUser" name="login" id="contactForm">
+                <form method="POST" action="loginUser" name="login" id="loginForm">
                     @csrf
                     <div class="control-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Your Email" data-validation-required-message="Please enter your email" autofocus />

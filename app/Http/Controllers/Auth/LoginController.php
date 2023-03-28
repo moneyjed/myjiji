@@ -44,26 +44,26 @@ use AuthenticatesUsers;
         $this->middleware('guest')->except('logout');
     }
 
-    public function authenticate(Request $request) {
-        $credentials = $request->only('email', 'password');
-        $validData = $request->validate([
+    public function authenticate(Request $req) {
+        //$credentials = $req->only('email', 'password');
+        $validData = $req->validate([
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
         //var_dump($validData);
         //exit;
         if (Auth::attempt($validData)) {
-            echo 'it is here';
-            exit;
+//            echo 'it is here validated';
+//            exit;
             // Authentication passed...
             //Session::put('userName', $value);
-            $req->session()->flash('reg_status', 'You is successfully logged in');
+            $req->session()->flash('msg', 'You are successfully logged in');
             return redirect('/');
             //return redirect()->intended('dashboard');
         } else {
-            echo 'it is not here';
-            exit;
-            $req->session()->flash('reg_status', 'The login credentials you entered are incorrect');
+//            echo 'it is not here';
+//            exit;
+            $req->session()->flash('err', 'The login credentials you entered are incorrect');
             return redirect('/');
         }
     }

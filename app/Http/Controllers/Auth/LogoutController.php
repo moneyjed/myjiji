@@ -16,8 +16,8 @@ class LogoutController extends Controller {
     public function logout(Request $req) {
         //Auth::logout();
         //$req->session()->forget('userName');
-        Session::forget('userName');
-        $req->session()->flash('reg_status', 'You are now logged out!');
+        Session::flush(); // removes all session data
+        $req->session()->flash('msg', 'You are now logged out!');
         return redirect('/');
     }
 

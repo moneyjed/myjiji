@@ -10,11 +10,19 @@
     <div class="col-lg-6 text-center text-lg-right">
         <div class="d-inline-flex align-items-center">
             <div class="btn-group">
+                @guest
                 <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <button class="dropdown-item" type="button">Sign in</button>
-                    <button class="dropdown-item" type="button">Sign up</button>
+                    <a href="/login" class="dropdown-item" >Login</a>
+                    <a href="/register" class="dropdown-item" >Register</a>
                 </div>
+                @endguest
+                @auth
+                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Welcome, {{ auth()->user()->fname }}</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="/logout" class="dropdown-item" >Logout</a>
+                </div>
+                @endauth
             </div>
             <div class="btn-group mx-2">
                 <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
